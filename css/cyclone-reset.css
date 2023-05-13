@@ -8,6 +8,17 @@
     src: url(../assets/fonts/pixeBoy.woff2) format('woff2');
 }
 
+:root {
+    /* * PUCK-MAN */
+    --color-binky: #e91113;
+    --color-pinky: #dc80b1;
+    --color-inky: #01f0ef;
+    --color-clyde: #fe8b0d;
+    --color-sue: #9d199d;
+    --color-funky: #7fff00;
+    --color-pacman: #ffea54;
+}
+
 *,
 *::before,
 *::after {
@@ -69,8 +80,7 @@ h6 {
 }
 
 img,
-picture,
-svg {
+picture {
     display: block;
     max-width: 100%;
 }
