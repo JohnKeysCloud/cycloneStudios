@@ -1,7 +1,7 @@
 const cycloneLogoButton = document.getElementById('cyclone-logo-button');
 const audio = document.querySelector('audio');
 
-function toggleAccordion(panelToActivate) {
+function switchAccordionPanel(panelToActivate) {
   const buttons =
     panelToActivate.parentElement.querySelectorAll('.accordion-trigger');
   const contents =
@@ -27,7 +27,7 @@ function toggleAccordion(panelToActivate) {
   });
 }
 
-cycloneLogoButton.addEventListener('click', function () {
+function showAccordion() {
   const cycloneAccordionContainer = this.parentNode.querySelector(
     '#cyclone-accordion-container'
   );
@@ -39,24 +39,19 @@ cycloneLogoButton.addEventListener('click', function () {
   this.classList.add('clicked');
   cycloneAccordionContainer.classList.add('active');
 
-  // setTimeout(() => {
-  //   console.log(this);
-  //   this.style.transition = 'none';
-  //   this.style.visibility = 'hidden';
-  // }, 1000);
-
   cycloneAccordionCloseButton.addEventListener('click', function () {
     cycloneLogoButton.classList.remove('clicked');
     this.parentNode.classList.remove('active');
-    // cycloneLogoButton.style.visibility = 'visible';
   });
 
   cycloneAccordion.addEventListener('click', (e) => {
     const activePanel = e.target.closest('.accordion-panel');
 
     if (!activePanel) return;
-    toggleAccordion(activePanel);
+    switchAccordionPanel(activePanel);
   });
-});
+}
+
+cycloneLogoButton.addEventListener('click', showAccordion);
 
 // audio.play();
