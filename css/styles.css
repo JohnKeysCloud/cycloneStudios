@@ -18,13 +18,16 @@
 
 @keyframes hover {
   to {
-    transform: translate(-50%, -50%) translateY(-50px);
+    transform: translateY(-50px);
   }
 }
 
 body {
-  color: white;
+	color: white;
+	display: grid;
 	font-family: 'Cyclone', monospace;
+	grid-template-areas: 'center';
+	place-items: center;
 }
 
 body::before {
@@ -52,19 +55,16 @@ body::after {
 body #cyclone-logo-button {
   animation: hover 5.55s ease-in-out infinite alternate;
   cursor: pointer;
-  left: 50%;
-  position: fixed;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(1);
-	transition: all 1s ease-in-out;
-	/* visibility: visible; */
+	grid-area: center;
+  transform: scale(1);
+	transition: animation-play-state 1s ease-in-out, opacity 1s ease-in-out, transform 0.5s ease-in-out;
   width: clamp(340px, 55vw, 700px);
 }
 
 body #cyclone-logo-button.clicked {
 	animation-play-state: none;
 	opacity: 0;
-	transform: translate(-50%, -50%) scale(0);
+	transform: scale(0);
 } 
 
 body #cyclone-logo-button:hover {
@@ -96,22 +96,18 @@ body #cyclone-logo-button::before {
 body #cyclone-accordion-container {
   --_accordion-padding: 8px;
 
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(0);
+	grid-area: center;
+  transform: scale(0);
   width: min(88vw, 888px);
-	transition: all 1s ease-in-out;
+	transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
   z-index: 1;
 
   opacity: 0;
-  /* visibility: hidden; */
 }
 
 body #cyclone-accordion-container.active {
 	opacity: 1;
-	transform: translate(-50%, -50%) scale(1);
-	/* visibility: visible; */
+	transform: scale(1);
 }
 
 body #cyclone-accordion-close-button {
