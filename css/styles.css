@@ -23,10 +23,8 @@
 }
 
 body {
-  /* display: grid; */
-  /* place-items: center; */
-  background: transparent;
   color: white;
+	font-family: 'Cyclone', monospace;
 }
 
 body::before {
@@ -57,10 +55,17 @@ body #cyclone-logo-button {
   left: 50%;
   position: fixed;
   top: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 1s ease-in-out;
+  transform: translate(-50%, -50%) scale(1);
+	transition: all 1s ease-in-out;
+	/* visibility: visible; */
   width: clamp(340px, 55vw, 700px);
 }
+
+body #cyclone-logo-button.clicked {
+	animation-play-state: none;
+	opacity: 0;
+	transform: translate(-50%, -50%) scale(0);
+} 
 
 body #cyclone-logo-button:hover {
   animation-play-state: paused;
@@ -96,11 +101,17 @@ body #cyclone-accordion-container {
   top: 50%;
   transform: translate(-50%, -50%) scale(0);
   width: min(88vw, 888px);
+	transition: all 1s ease-in-out;
   z-index: 1;
 
   opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s ease-in-out;
+  /* visibility: hidden; */
+}
+
+body #cyclone-accordion-container.active {
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(1);
+	/* visibility: visible; */
 }
 
 body #cyclone-accordion-close-button {
@@ -124,8 +135,8 @@ body #cyclone-accordion-close-button:active {
 
 body #cyclone-accordion {
   --_button-size: 3rem;
-  --_panel-padding: 0.75rem;
-  --_panel-gap: 1rem;
+  --_panel-padding: 0.5rem;
+  --_panel-gap: 1.5rem;
 
   contain: content;
   display: flex;
@@ -182,7 +193,7 @@ body #cyclone-accordion .accordion-panel:nth-child(5) {
 
 /* ? can be refactored using javascript */
 body #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
-  flex-basis: clamp(15rem, 40vh, 20rem);
+  flex-basis: clamp(10rem, 30vh, 15rem);
   flex-grow: 1;
 }
 
@@ -216,9 +227,10 @@ body #cyclone-accordion .accordion-title {
   align-items: center;
   color: white;
   display: grid;
-  font-size: 1.75rem;
+  font-size: clamp(1.313rem, 3vw, 1.75rem);
   font-weight: 700;
   isolation: isolate;
+	letter-spacing: 0.125rem;
   position: relative;
 }
 
@@ -271,13 +283,14 @@ body #cyclone-accordion .accordion-icon {
   z-index: 1;
 }
 
+/* ! ⬇️ needs-a-organizin' ⬇️ */
+
 use {
   filter: drop-shadow(0 0 5px var(--_panel-color));
 }
 
 #code-container {
   aspect-ratio: 1 / 1;
-  /* border: 2px solid red; */
   bottom: 0;
   width: clamp(100px, 25vw, 300px);
   position: absolute;

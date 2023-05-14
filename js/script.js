@@ -1,11 +1,4 @@
 const cycloneLogoButton = document.getElementById('cyclone-logo-button');
-const cycloneAccordionContainer = document.getElementById(
-  'cyclone-accordion-container'
-);
-const cycloneAccordion = document.getElementById('cyclone-accordion');
-const cycloneAccordionCloseButton = document.getElementById(
-  'cyclone-accordion-close-button'
-);
 const audio = document.querySelector('audio');
 
 function toggleAccordion(panelToActivate) {
@@ -34,32 +27,36 @@ function toggleAccordion(panelToActivate) {
   });
 }
 
-cycloneLogoButton.addEventListener('click', () => {
-  cycloneAccordionCloseButton.addEventListener('click', () => {
-    cycloneAccordionContainer.style.visibility = 'hidden';
-    cycloneAccordionContainer.style.opacity = 0;
-    cycloneAccordionContainer.style.transform =
-      'translate(-50%, -50%) scale(0)';
+cycloneLogoButton.addEventListener('click', function () {
+  const cycloneAccordionContainer = this.parentNode.querySelector(
+    '#cyclone-accordion-container'
+  );
+  const cycloneAccordion = document.getElementById('cyclone-accordion');
+  const cycloneAccordionCloseButton = document.getElementById(
+    'cyclone-accordion-close-button'
+  );
 
-    cycloneLogoButton.style.animationPlayState = 'running';
-    cycloneLogoButton.style.opacity = 1;
-    cycloneLogoButton.style.transform = 'translate(-50%, -50%) scale(1)';
+  this.classList.add('clicked');
+  cycloneAccordionContainer.classList.add('active');
+
+  // setTimeout(() => {
+  //   console.log(this);
+  //   this.style.transition = 'none';
+  //   this.style.visibility = 'hidden';
+  // }, 1000);
+
+  cycloneAccordionCloseButton.addEventListener('click', function () {
+    cycloneLogoButton.classList.remove('clicked');
+    this.parentNode.classList.remove('active');
+    // cycloneLogoButton.style.visibility = 'visible';
   });
 
-  cycloneLogoButton.style.animationPlayState = 'paused';
-  cycloneLogoButton.style.opacity = 0;
-  cycloneLogoButton.style.transform = 'translate(-50%, -50%) scale(0)';
+  cycloneAccordion.addEventListener('click', (e) => {
+    const activePanel = e.target.closest('.accordion-panel');
 
-  cycloneAccordionContainer.style.visibility = 'visible';
-  cycloneAccordionContainer.style.opacity = 1;
-  cycloneAccordionContainer.style.transform = 'translate(-50%, -50%) scale(1)';
-});
-
-cycloneAccordion.addEventListener('click', (e) => {
-  const activePanel = e.target.closest('.accordion-panel');
-
-  if (!activePanel) return;
-  toggleAccordion(activePanel);
+    if (!activePanel) return;
+    toggleAccordion(activePanel);
+  });
 });
 
 // audio.play();
