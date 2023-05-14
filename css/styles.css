@@ -62,7 +62,7 @@ body #cyclone-logo-button {
 }
 
 body #cyclone-logo-button.clicked {
-	animation-play-state: none;
+	animation-play-state: paused;
 	opacity: 0;
 	transform: scale(0);
 } 
