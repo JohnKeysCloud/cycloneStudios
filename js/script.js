@@ -7,14 +7,11 @@ function adjustTime() {
 	timeElement.textContent = time;
 }
 
-setInterval(adjustTime, 1000);
-adjustTime();
-
 function switchAccordionPanel(panelToActivate) {
   const buttons =
     panelToActivate.parentElement.querySelectorAll('.accordion-trigger');
   const contents =
-    panelToActivate.parentElement.querySelectorAll('.accordion-content');
+		panelToActivate.parentElement.querySelectorAll('.accordion-content');
 
   buttons.forEach((button) => {
     if (button.getAttribute('aria-expanded') === 'true') {
@@ -43,7 +40,7 @@ function showAccordion() {
   const cycloneAccordion = document.getElementById('cyclone-accordion');
   const cycloneAccordionCloseButton = document.getElementById(
     'cyclone-accordion-close-button'
-  );
+	);
 
   this.classList.add('clicked');
   cycloneAccordionContainer.classList.add('active');
@@ -54,15 +51,17 @@ function showAccordion() {
   });
 
   cycloneAccordion.addEventListener('click', (e) => {
-    const activePanel = e.target.closest('.accordion-panel');
+		const clickedPanel = e.target.closest('.accordion-panel');
+		
+		console.log(e.target);
 
-    if (!activePanel) return;
-    switchAccordionPanel(activePanel);
-  });
+    if (!clickedPanel) return;
+    switchAccordionPanel(clickedPanel);
+	});
 }
-
-
 
 cycloneLogoButton.addEventListener('click', showAccordion);
 
-// audio.play();
+audio.play();
+setInterval(adjustTime, 1000);
+adjustTime();

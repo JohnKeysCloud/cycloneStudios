@@ -18,11 +18,11 @@
     <script defer src="js/script.js"></script>
   </head>
   <body>
-		<time>
+		<time class="no-select">
 			<!-- * injected via JS -->
 		</time>
 
-    <button id="cyclone-logo-button">
+    <button id="cyclone-logo-button" class="no-select">
       <img
         id="cyclone-logo"
         src="assets/images/logos/cycloneStudios.svg"
@@ -31,7 +31,7 @@
     </button>
 
     <div id="cyclone-accordion-container">
-      <button id="cyclone-accordion-close-button">✕</button>
+      <button id="cyclone-accordion-close-button" aria-label="Accordion Close Button">✕</button>
       <div id="cyclone-accordion">
         <div class="accordion-panel">
           <h2 id="panel1-title" class="h2">
@@ -54,6 +54,7 @@
             aria-labelledby="panel1-title"
             role="region"
           >
+						<p class="under-construction">⚠️ UNDER CONSTRUCTION</p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
               quibusdam exercitationem sed voluptatum inventore.
@@ -86,6 +87,7 @@
             aria-labelledby="panel2-title"
             role="region"
           >
+						<p class="under-construction">⚠️ UNDER CONSTRUCTION</p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
               quibusdam exercitationem sed voluptatum inventore.
@@ -118,6 +120,7 @@
             aria-labelledby="panel3-title"
             role="region"
           >
+						<p class="under-construction">⚠️ UNDER CONSTRUCTION</p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
               quibusdam exercitationem sed voluptatum inventore.
@@ -150,6 +153,7 @@
             aria-labelledby="panel4-title"
             role="region"
           >
+						<p class="under-construction">⚠️ UNDER CONSTRUCTION</p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
               quibusdam exercitationem sed voluptatum inventore.
@@ -182,6 +186,7 @@
             aria-labelledby="panel5-title"
             role="region"
           >
+						<p class="under-construction">⚠️ UNDER CONSTRUCTION</p>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
               quibusdam exercitationem sed voluptatum inventore.
@@ -213,7 +218,7 @@
       </symbol>
     </svg>
 
-    <div id="code-container">
+    <div id="code-container" class="no-select">
       <img id="code" src="assets/images/cycloneStudios/code.webp" alt="Code" />
       <img
         id="cyclone-c"
@@ -224,7 +229,7 @@
 
     <figure>
       <!-- <figcaption>EXP</figcaption> -->
-      <!-- <audio controls autoplay loop src="assets/audio/thx.mp3"></audio> -->
+      <audio controls autoplay loop src="assets/audio/echoing-voices.mp3"></audio>
     </figure>
   </body>
 </html>

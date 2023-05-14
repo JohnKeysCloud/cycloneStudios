@@ -47,13 +47,20 @@ body::after {
 }
 
 body time {
+	cursor:default;
 	color: black;
 	font-family: 'Orbitron', sans-serif;
 	font-size: clamp(1.5rem, 3vw, 2.125rem);
+	opacity: 0.5;
 	position: fixed;
 	top: 1rem;
 	left: 1rem;
-	text-shadow: 0 0 3px whitesmoke;
+	text-shadow: 0 0 3px var(--color-inky);
+	transition: opacity 380ms ease-in-out;
+}
+
+body time:hover {
+	opacity: 1;
 }
 
 body #cyclone-logo-button {
@@ -73,9 +80,14 @@ body #cyclone-logo-button:hover {
   animation-play-state: paused;
 }
 
-body #cyclone-logo-button:hover::before {
-  -webkit-animation: pulse2 0.5s ease-in-out infinite alternate;
-  animation: pulse2 0.5s ease-in-out infinite alternate;
+body #cyclone-logo-button:focus {
+	outline: none;
+}
+
+body #cyclone-logo-button:hover::after,
+body #cyclone-logo-button:focus-visible::after {
+	animation-play-state: running;
+	opacity: 1 ;
 }
 
 body #cyclone-logo {
@@ -95,8 +107,22 @@ body #cyclone-logo-button::before {
   z-index: -1;
 }
 
+body #cyclone-logo-button::after {
+	-webkit-animation: pulse2 380ms ease-in-out infinite alternate;
+  animation: pulse2 380ms ease-in-out infinite alternate;
+	animation-play-state: paused;
+  content: url('../assets/images/logos/cycloneStudios.svg');
+  filter: drop-shadow(0 0 8px var(--color-inky));
+  height: 100%;
+  inset: 0;
+	opacity: 0;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
 body #cyclone-accordion-container {
-  --_accordion-padding: 8px;
+  --_accordion-padding: 16px;
 
   grid-area: center;
   opacity: 0;
@@ -113,9 +139,10 @@ body #cyclone-accordion-container.active {
 }
 
 body #cyclone-accordion-close-button {
+	display: inline-block;
   color: whitesmoke;
   cursor: pointer;
-  filter: drop-shadow(0 0 8px whitesmoke);
+  filter: drop-shadow(0 0 8px);
   font-size: 2rem;
 	opacity: 0;
   position: absolute;
@@ -131,6 +158,7 @@ body #cyclone-accordion-container.active #cyclone-accordion-close-button {
 }
 
 body #cyclone-accordion-container.active #cyclone-accordion-close-button:hover {
+	color: red;
 	transition: transform 100ms ease-in-out;
 	transform: scale(1.3);
 }
@@ -138,6 +166,16 @@ body #cyclone-accordion-container.active #cyclone-accordion-close-button:hover {
 body #cyclone-accordion-container.active #cyclone-accordion-close-button:active {
 	transition: transform 100ms ease-in-out;
   transform: scale(1);
+}
+
+body #cyclone-accordion-container #cyclone-accordion-close-button:focus,
+body #cyclone-accordion-container.active #cyclone-accordion-close-button:focus {
+	color: red;
+	outline: none;
+}	
+
+body #cyclone-accordion-container.active #cyclone-accordion-close-button:focus {
+	transform: scale(1.3);
 }
 
 body #cyclone-accordion {
@@ -161,8 +199,7 @@ body #cyclone-accordion {
 
 body #cyclone-accordion .accordion-panel {
   border-radius: calc(((var(--_panel-padding) * 2) + var(--_button-size)) / 2);
-	box-shadow: 0 0 8px var(--_panel-color);
-	/* box-shadow: 0 0 8px whitesmoke; */
+	box-shadow: 0 0 8px whitesmoke;
   cursor: pointer;
   flex-basis: calc(
     (var(--_panel-padding) * 2) + var(--_button-size)
@@ -172,6 +209,20 @@ body #cyclone-accordion .accordion-panel {
   padding: var(--_panel-padding);
   padding-right: calc(var(--_panel-padding) * 4);
   position: relative;
+	transition: transform 111ms ease-in-out, box-shadow 111ms ease-in-out;
+}
+
+body #cyclone-accordion .accordion-panel:hover {
+	transform: scale(101%);
+}
+
+body #cyclone-accordion .accordion-panel:active {
+	transform: scale(1);
+}
+
+body #cyclone-accordion .accordion-panel:focus-within:has(.accordion-trigger:focus-visible) {
+  outline: 3px ridge var(--_panel-color);
+	outline-offset: 4px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -202,17 +253,13 @@ body #cyclone-accordion .accordion-panel:nth-child(5) {
 
 /* ? can be refactored using javascript */
 body #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
+	box-shadow: 0 0 8px 3px var(--_panel-color);
   flex-basis: clamp(10rem, 30vh, 15rem);
   flex-grow: 1;
 }
 
-body .accordion-trigger {
+body #cyclone-accordion .accordion-trigger {
   outline: none;
-}
-
-body .accordion-panel:focus-within {
-  outline: 3px solid var(--_panel-color);
-  outline-offset: 4px;
 }
 
 body #cyclone-accordion .accordion-content > p {
@@ -341,6 +388,10 @@ figure audio {
 audio::-webkit-media-controls-panel {
   background-color: rgb(88, 88, 88);
   filter: drop-shadow(0 10px white);
+}
+
+.under-construction {
+	font-size: 3rem;
 }
 
 /* audio::-webkit-media-controls-mute-button
