@@ -17,11 +17,11 @@
 }
 
 body {
-	color: white;
-	display: grid;
-	font-family: 'Cyclone', monospace;
-	grid-template-areas: 'center';
-	place-items: center;
+  color: white;
+  display: grid;
+  font-family: 'Cyclone', monospace;
+  grid-template-areas: 'center';
+  place-items: center;
 }
 
 body::before {
@@ -46,18 +46,28 @@ body::after {
   z-index: -1;
 }
 
+body time {
+	color: black;
+	font-family: 'Orbitron', sans-serif;
+	font-size: clamp(1.5rem, 3vw, 2.125rem);
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	text-shadow: 0 0 3px whitesmoke;
+}
+
 body #cyclone-logo-button {
   cursor: pointer;
-	grid-area: center;
+  grid-area: center;
   transform: scale(1);
-	transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+  transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
   width: clamp(340px, 55vw, 700px);
 }
 
 body #cyclone-logo-button.clicked {
-	opacity: 0;
-	transform: scale(0);
-} 
+  opacity: 0;
+  transform: scale(0);
+}
 
 body #cyclone-logo-button:hover {
   animation-play-state: paused;
@@ -88,18 +98,18 @@ body #cyclone-logo-button::before {
 body #cyclone-accordion-container {
   --_accordion-padding: 8px;
 
-	grid-area: center;
+  grid-area: center;
   transform: scale(0);
   width: min(88vw, 888px);
-	transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+  transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
   z-index: 1;
 
   opacity: 0;
 }
 
 body #cyclone-accordion-container.active {
-	opacity: 1;
-	transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 
 body #cyclone-accordion-close-button {
@@ -122,9 +132,9 @@ body #cyclone-accordion-close-button:active {
 }
 
 body #cyclone-accordion {
-  --_button-size: 3rem;
+  --_button-size: 3.5rem;
   --_panel-padding: 0.5rem;
-  --_panel-gap: 1.5rem;
+  --_panel-gap: 0.75rem;
 
   contain: content;
   display: flex;
@@ -218,7 +228,7 @@ body #cyclone-accordion .accordion-title {
   font-size: clamp(1.313rem, 3vw, 1.75rem);
   font-weight: 700;
   isolation: isolate;
-	letter-spacing: 0.125rem;
+  letter-spacing: 0.125rem;
   position: relative;
 }
 
@@ -236,6 +246,8 @@ body #cyclone-accordion .accordion-title {
 }
 
 body #cyclone-accordion .accordion-image {
+  filter: brightness(0);
+  /* ! ⬆️ temp ⬆️ */
   height: 100%;
   inset: 0;
   object-fit: cover;
@@ -249,7 +261,8 @@ body
   #cyclone-accordion
   .accordion-panel:has([aria-expanded='true'])
   .accordion-image {
-  filter: brightness(0.5);
+  /* filter: brightness(0); */
+  /* filter: brightness(0.5); */
 }
 
 body #cyclone-accordion .accordion-trigger {

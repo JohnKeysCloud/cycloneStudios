@@ -1,5 +1,14 @@
 const cycloneLogoButton = document.getElementById('cyclone-logo-button');
-const audio = document.querySelector('audio');
+const audio = document.querySelector('audio'); 
+
+function adjustTime() {
+	const time = new Date().toLocaleTimeString();
+	const timeElement = document.querySelector('time');
+	timeElement.textContent = time;
+}
+
+setInterval(adjustTime, 1000);
+adjustTime();
 
 function switchAccordionPanel(panelToActivate) {
   const buttons =
@@ -51,6 +60,8 @@ function showAccordion() {
     switchAccordionPanel(activePanel);
   });
 }
+
+
 
 cycloneLogoButton.addEventListener('click', showAccordion);
 
