@@ -268,6 +268,11 @@ body #cyclone-accordion .accordion-content > p {
   transform: translateY(2rem);
 }
 
+body #cyclone-accordion .accordion-content > p:nth-child(2) {
+	font-family: 'Orbitron', sans-serif;
+	font-size: 1rem ;
+} 
+
 @media (prefers-reduced-motion: no-preference) {
   body #cyclone-accordion .accordion-panel:has([aria-expanded='true']) p {
     transition: all 0.5s ease-in-out 0.5s;
@@ -284,9 +289,7 @@ body #cyclone-accordion .accordion-title {
   color: white;
   display: grid;
   font-size: clamp(1.313rem, 5vw, 2.75rem);
-  font-weight: 700;
   isolation: isolate;
-  letter-spacing: 0.125rem;
   position: relative;
 }
 
