@@ -50,7 +50,7 @@ body time {
 	cursor:default;
 	color: black;
 	font-family: 'Orbitron', sans-serif;
-	font-size: clamp(1.5rem, 3vw, 2.125rem);
+	font-size: clamp(1.313rem, 3vw, 2.125rem);
 	opacity: 0.5;
 	position: fixed;
 	top: 1rem;
@@ -68,7 +68,7 @@ body #cyclone-logo-button {
   grid-area: center;
   transform: scale(1);
   transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
-  width: clamp(340px, 55vw, 700px);
+  width: clamp(275px, 50vw, 700px);
 }
 
 body #cyclone-logo-button.clicked {
@@ -285,7 +285,7 @@ body #cyclone-accordion .accordion-title {
   align-items: center;
   color: white;
   display: grid;
-  font-size: clamp(1.313rem, 3vw, 1.75rem);
+  font-size: clamp(1.313rem, 5vw, 2.75rem);
   font-weight: 700;
   isolation: isolate;
   letter-spacing: 0.125rem;
@@ -306,8 +306,6 @@ body #cyclone-accordion .accordion-title {
 }
 
 body #cyclone-accordion .accordion-image {
-  filter: brightness(0);
-  /* ! ⬆️ temp ⬆️ */
   height: 100%;
   inset: 0;
   object-fit: cover;
@@ -321,8 +319,7 @@ body
   #cyclone-accordion
   .accordion-panel:has([aria-expanded='true'])
   .accordion-image {
-  filter: brightness(0);
-  /* filter: brightness(0.5); */
+  filter: brightness(0.5);
 }
 
 body #cyclone-accordion .accordion-trigger {
