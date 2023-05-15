@@ -1,14 +1,5 @@
 @keyframes pulse {
   from {
-    opacity: 0.1;
-  }
-  to {
-    opacity: 0.7;
-  }
-}
-
-@keyframes pulse2 {
-  from {
     opacity: 0;
   }
   to {
@@ -32,18 +23,25 @@ body::before {
   filter: brightness(125%);
   inset: 0;
   position: absolute;
+	transition: opacity 1s ease-in-out;
   z-index: -1;
 }
 
 body::after {
-  animation: pulse 9s ease-in-out infinite alternate;
   background: url('../assets/images/cycloneStudios/atmosphere.gif') center /
     contain repeat;
   content: '';
   filter: brightness(70%);
   inset: 0;
+	opacity: 0.55;
   position: absolute;
+	transition: opacity 0.5s ease-in-out;
   z-index: -1;
+}
+
+body:has(#cyclone-accordion-container.active)::after,
+body:has(#cyclone-logo-button:hover)::after {
+	opacity: 1;
 }
 
 body time {
@@ -68,7 +66,7 @@ body #cyclone-logo-button {
   grid-area: center;
   transform: scale(1);
   transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
-  width: clamp(275px, 50vw, 700px);
+  width: clamp(300px, 50vw, 700px);
 }
 
 body #cyclone-logo-button.clicked {
@@ -96,8 +94,8 @@ body #cyclone-logo {
 }
 
 body #cyclone-logo-button::before {
-  -webkit-animation: pulse2 3s ease-in-out infinite alternate;
-  animation: pulse2 3s ease-in-out infinite alternate;
+  -webkit-animation: pulse 3s ease-in-out infinite alternate;
+  animation: pulse 3s ease-in-out infinite alternate;
   content: url('../assets/images/logos/cycloneStudios.svg');
   filter: drop-shadow(0 0 8px #848884);
   height: 100%;
@@ -108,8 +106,8 @@ body #cyclone-logo-button::before {
 }
 
 body #cyclone-logo-button::after {
-	-webkit-animation: pulse2 380ms ease-in-out infinite alternate;
-  animation: pulse2 380ms ease-in-out infinite alternate;
+	-webkit-animation: pulse 380ms ease-in-out infinite alternate;
+  animation: pulse 380ms ease-in-out infinite alternate;
 	animation-play-state: paused;
   content: url('../assets/images/logos/cycloneStudios.svg');
   filter: drop-shadow(0 0 8px var(--color-inky));
