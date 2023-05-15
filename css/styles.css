@@ -254,12 +254,13 @@ body #cyclone-accordion .accordion-panel:nth-child(5) {
 /* ? can be refactored using javascript */
 body #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
 	box-shadow: 0 0 8px 3px var(--_panel-color);
+  cursor: auto;
   flex-basis: clamp(10rem, 30vh, 15rem);
   flex-grow: 1;
 }
 
 body #cyclone-accordion .accordion-trigger {
-  outline: none;
+  cursor: pointer;
 }
 
 body #cyclone-accordion .accordion-content > p {
