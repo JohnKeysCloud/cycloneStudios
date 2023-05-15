@@ -216,7 +216,7 @@ body #cyclone-accordion .accordion-panel:hover {
 	transform: scale(101%);
 }
 
-body #cyclone-accordion .accordion-panel:active {
+body #cyclone-accordion .accordion-panel:not(:has([aria-expanded='true'])):active {
 	transform: scale(1);
 }
 
