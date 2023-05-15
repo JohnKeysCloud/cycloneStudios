@@ -1,17 +1,17 @@
 const cycloneLogoButton = document.getElementById('cyclone-logo-button');
-const audio = document.querySelector('audio'); 
+const audio = document.querySelector('audio');
 
 function adjustTime() {
-	const time = new Date().toLocaleTimeString();
-	const timeElement = document.querySelector('time');
-	timeElement.textContent = time;
+  const time = new Date().toLocaleTimeString();
+  const timeElement = document.querySelector('time');
+  timeElement.textContent = time;
 }
 
 function switchAccordionPanel(panelToActivate) {
   const buttons =
     panelToActivate.parentElement.querySelectorAll('.accordion-trigger');
   const contents =
-		panelToActivate.parentElement.querySelectorAll('.accordion-content');
+    panelToActivate.parentElement.querySelectorAll('.accordion-content');
 
   buttons.forEach((button) => {
     if (button.getAttribute('aria-expanded') === 'true') {
@@ -40,7 +40,7 @@ function showAccordion() {
   const cycloneAccordion = document.getElementById('cyclone-accordion');
   const cycloneAccordionCloseButton = document.getElementById(
     'cyclone-accordion-close-button'
-	);
+  );
 
   this.classList.add('clicked');
   cycloneAccordionContainer.classList.add('active');
@@ -51,13 +51,13 @@ function showAccordion() {
   });
 
   cycloneAccordion.addEventListener('click', (e) => {
-		const clickedPanel = e.target.closest('.accordion-panel');
-		
-		console.log(e.target);
+    const clickedPanel = e.target.closest('.accordion-panel');
+
+    console.log(e.target);
 
     if (!clickedPanel) return;
     switchAccordionPanel(clickedPanel);
-	});
+  });
 }
 
 cycloneLogoButton.addEventListener('click', showAccordion);
