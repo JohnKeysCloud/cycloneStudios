@@ -328,9 +328,9 @@ body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
   flex-grow: 1;
 }
 
-body main #cyclone-accordion .accordion-trigger {
-  /* cursor: pointer; */
-}
+/* body main #cyclone-accordion .accordion-trigger {
+  cursor: pointer;
+} */
 
 body main #cyclone-accordion .accordion-content > p {
   margin-left: calc(var(--_button-size) + var(--_panel-gap));
