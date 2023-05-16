@@ -54,7 +54,7 @@ body time {
 	top: 1rem;
 	left: 1rem;
 	text-shadow: 0 0 3px rgb(125, 207, 216);
-	transition: opacity 380ms ease-in-out;
+	transition: opacity 100ms ease-in-out;
 }
 
 body time:hover {
@@ -124,10 +124,9 @@ body #cyclone-accordion-container {
 
   grid-area: center;
   opacity: 0;
-	margin-top: 5vh;
+	margin-top: 3vh;
   transform: scale(0);
-  transition: opacity 1s ease-in-out, transform 0.5s ease-in-out, visibility 1s;
-	visibility: hidden;
+  transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
   width: min(88vw, 888px);
   z-index: 1;
 }
@@ -135,11 +134,10 @@ body #cyclone-accordion-container {
 body #cyclone-accordion-container.active {
 	opacity: 1;
   transform: scale(1);
-	visibility: visible;
 }
 
 body #cyclone-accordion-close-button {
-	display: inline-block;
+	display: none;
   color: whitesmoke;
   cursor: pointer;
   filter: drop-shadow(0 0 8px);
@@ -150,6 +148,10 @@ body #cyclone-accordion-close-button {
   top: -55px;
 	transform: scale(0) rotate(3turn);
   transition: transform 1s ease-in-out, opacity 0.5s ease-in-out 0.5s;
+}
+
+body #cyclone-accordion-container.active #cyclone-accordion-close-button {
+  display: inline-block;
 }
 
 body #cyclone-accordion-container.active #cyclone-accordion-close-button {
@@ -184,10 +186,14 @@ body #cyclone-accordion {
   --_panel-gap: 0.75rem;
 
   contain: content;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 1rem;
   padding: var(--_accordion-padding);
+}
+
+body #cyclone-accordion-container.active #cyclone-accordion {
+  display: flex;
 }
 
 @media (min-width: 45em) {
@@ -347,6 +353,11 @@ body #cyclone-accordion .accordion-icon {
 
 use {
   filter: drop-shadow(0 0 5px var(--_panel-color));
+  transition: opacity 380ms ease-in-out;
+}
+
+body #cyclone-accordion .accordion-panel:hover use {
+  opacity: 0.5;
 }
 
 #code-container {
