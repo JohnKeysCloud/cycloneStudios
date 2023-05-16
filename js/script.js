@@ -1,5 +1,7 @@
 const cycloneLogoButton = document.getElementById('cyclone-logo-button');
+const cycloneCursor = document.getElementById('cyclone-cursor');
 const audio = document.querySelector('audio');
+const timeCapsule = document.getElementById('time-capsule');
 
 function adjustTime() {
   const time = new Date().toLocaleTimeString();
@@ -49,7 +51,7 @@ function showAccordion() {
     cycloneLogoButton.classList.remove('clicked');
     this.parentNode.classList.remove('active');
   });
-
+  
   cycloneAccordion.addEventListener('click', (e) => {
     const clickedPanel = e.target.closest('.accordion-panel');
 
@@ -60,8 +62,17 @@ function showAccordion() {
   });
 }
 
-cycloneLogoButton.addEventListener('click', showAccordion);
+function followMouse(e) {
+  const cSize = cycloneCursor.getBoundingClientRect().width;
+  const mouseX = e.clientX - (cSize / 2);
+  const mouseY = e.clientY - (cSize / 2);
 
-audio.play();
+  cycloneCursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+}
+
+cycloneLogoButton.addEventListener('click', showAccordion);
+window.addEventListener('mousemove', followMouse);
+
+// audio.play();
 setInterval(adjustTime, 1000);
 adjustTime();
