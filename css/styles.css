@@ -119,6 +119,7 @@ body #time-capsule #code-container #code {
 
 body main {
   display: grid;
+  font-family: inherit;
   grid-template-areas: 'center';
   place-items: center;
   width: max-content;
