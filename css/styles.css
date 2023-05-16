@@ -61,7 +61,12 @@ body time:hover {
 	opacity: 1;
 }
 
-body #cyclone-logo-button {
+body main {
+  display: grid;
+  place-items: center;
+}
+
+body main #cyclone-logo-button {
   cursor: pointer;
   grid-area: center;
   transform: scale(1);
@@ -69,31 +74,31 @@ body #cyclone-logo-button {
   width: clamp(300px, 50vw, 700px);
 }
 
-body #cyclone-logo-button.clicked {
+body main #cyclone-logo-button.clicked {
   opacity: 0;
   transform: scale(0);
 }
 
-body #cyclone-logo-button:hover {
+body main #cyclone-logo-button:hover {
   animation-play-state: paused;
 }
 
-body #cyclone-logo-button:focus {
+body main #cyclone-logo-button:focus {
 	outline: none;
 }
 
-body #cyclone-logo-button:hover::after,
-body #cyclone-logo-button:focus-visible::after {
+body main #cyclone-logo-button:hover::after,
+body main #cyclone-logo-button:focus-visible::after {
 	animation-play-state: running;
 	opacity: 1 ;
 }
 
-body #cyclone-logo {
+body main #cyclone-logo {
   opacity: 0.5;
   filter: drop-shadow(0 0 3px #848884);
 }
 
-body #cyclone-logo-button::before {
+body main #cyclone-logo-button::before {
   -webkit-animation: pulse 3s ease-in-out infinite alternate;
   animation: pulse 3s ease-in-out infinite alternate;
   content: url('../assets/images/logos/cycloneStudios.svg');
@@ -105,7 +110,7 @@ body #cyclone-logo-button::before {
   z-index: -1;
 }
 
-body #cyclone-logo-button::after {
+body main #cyclone-logo-button::after {
 	-webkit-animation: pulse 380ms ease-in-out infinite alternate;
   animation: pulse 380ms ease-in-out infinite alternate;
 	animation-play-state: paused;
@@ -119,24 +124,23 @@ body #cyclone-logo-button::after {
   z-index: -1;
 }
 
-body #cyclone-accordion-container {
+body main #cyclone-accordion-container {
   --_accordion-padding: 16px;
 
   grid-area: center;
   opacity: 0;
-	margin-top: 3vh;
   transform: scale(0);
   transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
   width: min(88vw, 888px);
   z-index: 1;
 }
 
-body #cyclone-accordion-container.active {
+body main #cyclone-accordion-container.active {
 	opacity: 1;
   transform: scale(1);
 }
 
-body #cyclone-accordion-close-button {
+body main #cyclone-accordion-close-button {
 	display: none;
   color: whitesmoke;
   cursor: pointer;
@@ -150,37 +154,37 @@ body #cyclone-accordion-close-button {
   transition: transform 1s ease-in-out, opacity 0.5s ease-in-out 0.5s;
 }
 
-body #cyclone-accordion-container.active #cyclone-accordion-close-button {
+body main #cyclone-accordion-container.active #cyclone-accordion-close-button {
   display: inline-block;
 }
 
-body #cyclone-accordion-container.active #cyclone-accordion-close-button {
+body main #cyclone-accordion-container.active #cyclone-accordion-close-button {
 	opacity: 1;
 	transform: scale(1) rotate(0turn);
 }
 
-body #cyclone-accordion-container.active #cyclone-accordion-close-button:hover {
+body main #cyclone-accordion-container.active #cyclone-accordion-close-button:hover {
 	color: red;
 	transition: transform 100ms ease-in-out;
 	transform: scale(1.3);
 }
 
-body #cyclone-accordion-container.active #cyclone-accordion-close-button:active {
+body main #cyclone-accordion-container.active #cyclone-accordion-close-button:active {
 	transition: transform 100ms ease-in-out;
   transform: scale(1);
 }
 
-body #cyclone-accordion-container #cyclone-accordion-close-button:focus,
-body #cyclone-accordion-container.active #cyclone-accordion-close-button:focus {
+body main #cyclone-accordion-container #cyclone-accordion-close-button:focus,
+body main #cyclone-accordion-container.active #cyclone-accordion-close-button:focus {
 	color: red;
 	outline: none;
 }	
 
-body #cyclone-accordion-container.active #cyclone-accordion-close-button:focus {
+body main #cyclone-accordion-container.active #cyclone-accordion-close-button:focus {
 	transform: scale(1.3);
 }
 
-body #cyclone-accordion {
+body main #cyclone-accordion {
   --_button-size: clamp(2rem, 5vw, 3.5rem);
   --_panel-padding: 0.5rem;
   --_panel-gap: 0.75rem;
@@ -192,18 +196,18 @@ body #cyclone-accordion {
   padding: var(--_accordion-padding);
 }
 
-body #cyclone-accordion-container.active #cyclone-accordion {
+body main #cyclone-accordion-container.active #cyclone-accordion {
   display: flex;
 }
 
 @media (min-width: 45em) {
-  body #cyclone-accordion {
+  body main #cyclone-accordion {
     flex-direction: row;
     height: 30rem;
   }
 }
 
-body #cyclone-accordion .accordion-panel {
+body main #cyclone-accordion .accordion-panel {
   border-radius: calc(((var(--_panel-padding) * 2) + var(--_button-size)) / 2);
 	box-shadow: 0 0 8px whitesmoke;
   cursor: pointer;
@@ -218,80 +222,80 @@ body #cyclone-accordion .accordion-panel {
 	transition: transform 111ms ease-in-out, box-shadow 111ms ease-in-out;
 }
 
-body #cyclone-accordion .accordion-panel:hover {
+body main #cyclone-accordion .accordion-panel:hover {
 	transform: scale(101%);
 }
 
-body #cyclone-accordion .accordion-panel:not(:has([aria-expanded='true'])):active {
+body main #cyclone-accordion .accordion-panel:not(:has([aria-expanded='true'])):active {
 	transform: scale(1);
 }
 
-body #cyclone-accordion .accordion-panel:focus-within:has(.accordion-trigger:focus-visible) {
+body main #cyclone-accordion .accordion-panel:focus-within:has(.accordion-trigger:focus-visible) {
   outline: 3px ridge var(--_panel-color);
 	outline-offset: 4px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  body #cyclone-accordion .accordion-panel {
+  body main #cyclone-accordion .accordion-panel {
     transition: flex-basis 0.5s ease-in-out, flex-grow 0.5s ease-in-out;
   }
 }
 
-body #cyclone-accordion .accordion-panel:nth-child(1) {
+body main #cyclone-accordion .accordion-panel:nth-child(1) {
   --_panel-color: var(--color-binky);
 }
 
-body #cyclone-accordion .accordion-panel:nth-child(2) {
+body main #cyclone-accordion .accordion-panel:nth-child(2) {
   --_panel-color: var(--color-pinky);
 }
 
-body #cyclone-accordion .accordion-panel:nth-child(3) {
+body main #cyclone-accordion .accordion-panel:nth-child(3) {
   --_panel-color: var(--color-inky);
 }
 
-body #cyclone-accordion .accordion-panel:nth-child(4) {
+body main #cyclone-accordion .accordion-panel:nth-child(4) {
   --_panel-color: var(--color-clyde);
 }
 
-body #cyclone-accordion .accordion-panel:nth-child(5) {
+body main #cyclone-accordion .accordion-panel:nth-child(5) {
   --_panel-color: var(--color-pacman);
 }
 
 /* ? can be refactored using javascript */
-body #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
+body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
 	box-shadow: 0 0 8px 3px var(--_panel-color);
   cursor: auto;
   flex-basis: clamp(10rem, 30vh, 15rem);
   flex-grow: 1;
 }
 
-body #cyclone-accordion .accordion-trigger {
+body main #cyclone-accordion .accordion-trigger {
   cursor: pointer;
 }
 
-body #cyclone-accordion .accordion-content > p {
+body main #cyclone-accordion .accordion-content > p {
   margin-left: calc(var(--_button-size) + var(--_panel-gap));
   opacity: 0;
   transform: translateY(2rem);
 }
 
-body #cyclone-accordion .accordion-content > p:nth-child(2) {
+body main #cyclone-accordion .accordion-content > p:nth-child(2) {
 	font-family: 'Orbitron', sans-serif;
 	font-size: 1rem ;
 } 
 
 @media (prefers-reduced-motion: no-preference) {
-  body #cyclone-accordion .accordion-panel:has([aria-expanded='true']) p {
+  body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) p {
     transition: all 0.5s ease-in-out 0.5s;
   }
 }
 
-body #cyclone-accordion .accordion-panel:has([aria-expanded='true']) p {
+body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) p {
   opacity: 1;
   transform: translateY(0rem);
 }
 
-body #cyclone-accordion .accordion-title {
+body main #cyclone-accordion .accordion-title {
   align-items: center;
   color: white;
   display: grid;
@@ -301,7 +305,7 @@ body #cyclone-accordion .accordion-title {
 }
 
 @media (max-width: 44.999em) {
-  body #cyclone-accordion .accordion-title::after {
+  body main #cyclone-accordion .accordion-title::after {
     background: hsla(0, 0%, 0%, 0.5);
     border-radius: 100vw;
     content: '';
@@ -313,7 +317,7 @@ body #cyclone-accordion .accordion-title {
   }
 }
 
-body #cyclone-accordion .accordion-image {
+body main #cyclone-accordion .accordion-image {
   height: 100%;
   inset: 0;
   object-fit: cover;
@@ -323,14 +327,14 @@ body #cyclone-accordion .accordion-image {
   z-index: -1;
 }
 
-body
+body main
   #cyclone-accordion
   .accordion-panel:has([aria-expanded='true'])
   .accordion-image {
   filter: brightness(0.5);
 }
 
-body #cyclone-accordion .accordion-trigger {
+body main #cyclone-accordion .accordion-trigger {
   align-items: center;
   background: transparent;
   border: 0;
@@ -339,7 +343,7 @@ body #cyclone-accordion .accordion-trigger {
   gap: var(--_panel-gap);
 }
 
-body #cyclone-accordion .accordion-icon {
+body main #cyclone-accordion .accordion-icon {
   aspect-ratio: 1 / 1;
   background: hsla(0, 0%, 0%, 0.55);
   border-radius: 50%;
@@ -356,7 +360,7 @@ use {
   transition: opacity 380ms ease-in-out;
 }
 
-body #cyclone-accordion .accordion-panel:hover use {
+body main #cyclone-accordion .accordion-panel:hover use {
   opacity: 0.5;
 }
 
