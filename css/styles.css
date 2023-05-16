@@ -300,6 +300,7 @@ body main #cyclone-accordion .accordion-title {
   color: white;
   display: grid;
   font-size: clamp(1.625rem, 3vw, 2.5rem);
+  line-height: 1;
   isolation: isolate;
   position: relative;
 }
