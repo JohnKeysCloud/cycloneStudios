@@ -16,6 +16,16 @@
   }  
 }
 
+@media (hover: none) {
+  * {
+    cursor: default !important;
+  }
+
+  .no-cursor-element {
+    display: none;
+  }
+}
+
 * {
   cursor: none !important;
 }
@@ -81,7 +91,7 @@ body #time-capsule:hover #code-container #code {
 body #time-capsule time {
   color: whitesmoke;
   font-family: 'Orbitron', sans-serif;
-  font-size: 0.8313;
+  font-size: 0.8313rem;
   height: max-content;
   inset: 0;
   margin: auto;
@@ -128,8 +138,8 @@ body main {
 body main #cyclone-logo-button {
   /* cursor: pointer; */
   grid-area: center;
-  transform: scale(1);
   position: relative;
+  transform: scale(1);
   transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
   width: clamp(300px, 50vw, 700px);
 }
@@ -189,6 +199,7 @@ body main #cyclone-accordion-container {
 
   grid-area: center;
   opacity: 0;
+  font-family: 'Cyclone', monospace;
   transform: scale(0);
   transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
   z-index: 1;
@@ -200,7 +211,7 @@ body main #cyclone-accordion-container.active {
   width: min(88vw, 888px);
 }
 
-body main #cyclone-accordion-close-button {
+body main #cyclone-accordion-container #cyclone-accordion-close-button {
 	display: none;
   color: whitesmoke;
   /* cursor: pointer; */
@@ -404,6 +415,10 @@ body main #cyclone-accordion .accordion-trigger {
   flex-direction: row-reverse;
   gap: var(--_panel-gap);
 }
+
+body main #cyclone-accordion .accordion-trigger:focus {
+  outline: none;
+} 
 
 body main #cyclone-accordion .accordion-icon {
   aspect-ratio: 1 / 1;

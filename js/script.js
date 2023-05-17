@@ -62,7 +62,8 @@ function showAccordion() {
   });
 }
 
-function followMouse(e) {
+function moveCursor(e) {
+  if (!cycloneCursor.classList.contains('no-cursor-element')) return;
   const cSize = cycloneCursor.getBoundingClientRect().width;
   const mouseX = e.clientX - (cSize / 2);
   const mouseY = e.clientY - (cSize / 2);
@@ -71,7 +72,7 @@ function followMouse(e) {
 }
 
 cycloneLogoButton.addEventListener('click', showAccordion);
-window.addEventListener('mousemove', followMouse);
+window.addEventListener('mousemove', moveCursor);
 
 // audio.play();
 setInterval(adjustTime, 1000);
