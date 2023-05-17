@@ -33,9 +33,9 @@ function switchAccordionPanel(panelToActivate) {
       .querySelector('.accordion-content')
       .setAttribute('aria-hidden', false);
     
-    // panelToActivate.querySelector('.accordion-content').addEventListener('scroll', function (e) {
-    //   e.stopPropagation(); 
-    // });
+    panelToActivate.querySelector('.accordion-content').addEventListener('scroll', function (e) {
+      e.stopPropagation(); 
+    });
   });
 }
 
