@@ -363,12 +363,13 @@ body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
 
 body main #cyclone-accordion .accordion-content {
   border: 2px solid red;
-  max-height: calc(100% - var(--_button-size));
+  height: 100px;
+  /* max-height: calc(100% - var(--_button-size)); */
   position: relative;
 }
 
 body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) .accordion-content {
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 body main #cyclone-accordion .accordion-content > p {
