@@ -68,7 +68,7 @@ function moveCursor(e) {
   const mouseX = e.clientX - (cSize / 2);
   const mouseY = e.clientY - (cSize / 2);
 
-  cycloneCursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+  cycloneCursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
 }
 
 function showCursor() {
