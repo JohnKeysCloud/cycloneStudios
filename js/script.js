@@ -32,6 +32,10 @@ function switchAccordionPanel(panelToActivate) {
     panelToActivate
       .querySelector('.accordion-content')
       .setAttribute('aria-hidden', false);
+    
+    panelToActivate.querySelector('.accordion-content').addEventListener('scroll', function (e) {
+      e.stopPropagation(); 
+    });
   });
 }
 
