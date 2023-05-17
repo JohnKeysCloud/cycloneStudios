@@ -362,6 +362,7 @@ body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
 } */
 
 body main #cyclone-accordion .accordion-content {
+  border: 2px solid red;
   max-height: calc(100% - var(--_button-size));
   position: relative;
 }
