@@ -281,7 +281,6 @@ body main #cyclone-accordion .accordion-panel {
   isolation: isolate;
   overflow: hidden;
   padding: var(--_panel-padding);
-  padding-right: calc(var(--_panel-padding) * 4);
   position: relative;
   transition: transform 111ms ease-in-out, box-shadow 111ms ease-in-out;
   z-index: 1;
@@ -362,13 +361,15 @@ body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
 } */
 
 body main #cyclone-accordion .accordion-content {
-  border: 2px solid red;
-  height: 100px;
-  /* max-height: calc(100% - var(--_button-size)); */
-  position: relative;
+  border-radius: inherit;
+  position: absolute;
+  inset: 0;
+  padding-top: var(--_button-size);
+  padding-right: calc(var(--_panel-padding) * 4);
 }
 
 body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) .accordion-content {
+  align-self: stretch;
   overflow-y: scroll;
 }
 
