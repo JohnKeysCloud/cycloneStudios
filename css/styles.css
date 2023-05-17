@@ -129,7 +129,6 @@ body #time-capsule #code-container #code {
 
 body main {
   display: grid;
-  font-family: inherit;
   grid-template-areas: 'center';
   place-items: center;
   width: max-content;
@@ -199,7 +198,6 @@ body main #cyclone-accordion-container {
 
   grid-area: center;
   opacity: 0;
-  font-family: 'Cyclone', monospace;
   transform: scale(0);
   transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
   z-index: 1;
