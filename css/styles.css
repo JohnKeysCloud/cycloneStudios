@@ -127,7 +127,6 @@ body main {
 body main #cyclone-logo-button {
   /* * cursor: pointer; */
   grid-area: center;
-  margin-bottom: 175px;
   position: relative;
   transform: scale(1);
   transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
