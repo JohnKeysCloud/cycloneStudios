@@ -287,6 +287,19 @@ body main #cyclone-accordion .accordion-panel {
 }
 
 body main #cyclone-accordion .accordion-panel::before {
+  background: url('../assets/images/cycloneStudios/cloudy.gif') center / cover no-repeat;
+  border-radius: inherit;
+  content: '';
+  inset: 0;
+  height: 100%;
+  opacity: 0.55;
+  width: 100%;
+  position: absolute;
+  transition: opacity 0.5s ease-in-out 1s;
+  z-index: -1;
+}
+
+body main #cyclone-accordion .accordion-panel::after {
   background: linear-gradient(
     to bottom,
     black,
@@ -298,14 +311,19 @@ body main #cyclone-accordion .accordion-panel::before {
   content: '';
   inset: 0;
   height: 100%;
-  opacity: 0.3;
+  opacity: 0.7;
   width: 100%;
   position: absolute;
   transition: opacity 0.5s ease-in-out 0.5s;
-  z-index: 0;
+  z-index: -1;
+
 }
 
 body main #cyclone-accordion .accordion-panel:has([aria-expanded='true'])::before {
+  opacity: 0;
+}
+
+body main #cyclone-accordion .accordion-panel:has([aria-expanded='true'])::after {
   opacity: 1;
 }
 
@@ -399,7 +417,8 @@ body main #cyclone-accordion .accordion-title {
   position: relative;
 }
 
-body main #cyclone-accordion .accordion-image {
+/* * In case I decide to use an image for the background */
+/* body main #cyclone-accordion .accordion-image {
   height: 100%;
   inset: 0;
   opacity: 0.5;
@@ -408,7 +427,7 @@ body main #cyclone-accordion .accordion-image {
   position: absolute;
   width: 100%;
   z-index: -1;
-}
+} */
 
 body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
   opacity: 1;
