@@ -368,7 +368,7 @@ body main #cyclone-accordion .accordion-content {
 }
 
 body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) .accordion-content {
-  overflow-y: scroll;
+  overflow: scroll;
 }
 
 body main #cyclone-accordion .accordion-content > p {
