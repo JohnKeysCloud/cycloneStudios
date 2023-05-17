@@ -284,6 +284,7 @@ body main #cyclone-accordion .accordion-panel {
   padding-right: calc(var(--_panel-padding) * 4);
   position: relative;
   transition: transform 111ms ease-in-out, box-shadow 111ms ease-in-out;
+  z-index: 1;
 }
 
 body main #cyclone-accordion .accordion-panel::before {
@@ -363,7 +364,6 @@ body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
 body main #cyclone-accordion .accordion-content {
   max-height: calc(100% - var(--_button-size));
   position: relative;
-  z-index: 1;
 }
 
 body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) .accordion-content {
