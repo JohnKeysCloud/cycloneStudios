@@ -362,6 +362,7 @@ body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
 
 body main #cyclone-accordion .accordion-content {
   height: calc(100% - var(--_button-size));
+  -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
 }
 
