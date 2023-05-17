@@ -71,8 +71,18 @@ function moveCursor(e) {
   cycloneCursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
 }
 
+function showCursor() {
+  cycloneCursor.classList.remove('hidden');
+}
+
+function hideCursor() {
+  cycloneCursor.classList.add('hidden');
+}
+
 cycloneLogoButton.addEventListener('click', showAccordion);
-window.addEventListener('mousemove', moveCursor);
+document.addEventListener('mousemove', moveCursor);
+document.addEventListener('mouseenter', showCursor);
+document.addEventListener('mouseleave', hideCursor);
 
 // audio.play();
 setInterval(adjustTime, 1000);
