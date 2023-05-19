@@ -251,6 +251,10 @@ input:-webkit-autofill:active {
   }
 }
 
+.cyclone-font {
+  padding-left: 0.5rem;
+}
+
 /* * UTILITIES */
 
 .no-select {
