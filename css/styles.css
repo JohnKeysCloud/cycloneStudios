@@ -295,7 +295,7 @@ body main #cyclone-accordion .accordion-panel::before {
   opacity: 0.55;
   width: 100%;
   position: absolute;
-  transition: opacity 0.5s ease-in-out 1s;
+  transition: opacity 0.250s ease-in-out 0.5s;
   z-index: -1;
 }
 
@@ -305,16 +305,18 @@ body main #cyclone-accordion .accordion-panel::after {
     black,
     transparent,
     transparent,
+    transparent,
     silver
   );
-  border-radius: inherit;
+  /* border-radius: inherit; */
   content: '';
   inset: 0;
   height: 100%;
   opacity: 0.3;
   width: 100%;
   position: absolute;
-  transition: opacity 0.5s ease-in-out 0.5s;
+  transform-origin: bottom;
+  transition: opacity 0.250s ease-in-out 0.250s, transform 0.5s ease-in-out 0.5s;
   z-index: -1;
 }
 
@@ -324,6 +326,7 @@ body main #cyclone-accordion .accordion-panel:has([aria-expanded='true'])::befor
 
 body main #cyclone-accordion .accordion-panel:has([aria-expanded='true'])::after {
   opacity: 0.55;
+  transform: scaleY(4);
 }
 
 body main #cyclone-accordion .accordion-panel:hover {
