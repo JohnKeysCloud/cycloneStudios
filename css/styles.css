@@ -16,6 +16,13 @@
   }
 }
 
+@keyframes showAndGrow {
+  to {
+    opacity: 0.33;
+    transform: scale(0.77);
+  }
+}
+
 * {
   cursor: none !important;
 }
@@ -59,7 +66,7 @@ body:has(#cyclone-logo-button:hover)::after {
 
 body #time-capsule {
   aspect-ratio: 1 / 1;
-  /* * cursor: pointer; */
+  cursor: pointer;
   position: fixed;
   top: 1rem;
   left: 1rem;
@@ -109,10 +116,10 @@ body #time-capsule #code-container {
 
 body #time-capsule #code-container #code {
   filter: saturate(0) drop-shadow(0 0 3px rgb(125, 207, 216));
-  position: absolute;
   height: 100%;
   opacity: 0.3;
   pointer-events: none;
+  position: absolute;
   transition: opacity 380ms ease-in-out, transform 0.5s ease-in-out;
   width: 100%;
   z-index: -1;
@@ -126,7 +133,7 @@ body main {
 }
 
 body main #cyclone-logo-button {
-  /* * cursor: pointer; */
+  cursor: pointer;
   grid-area: center;
   position: relative;
   transform: scale(1);
@@ -201,9 +208,9 @@ body main #cyclone-accordion-container.active {
 }
 
 body main #cyclone-accordion-container #cyclone-accordion-close-button {
-  display: none;
   color: whitesmoke;
-  /* * cursor: pointer; */
+  cursor: pointer;
+  display: none;
   filter: drop-shadow(0 0 8px);
   font-size: 2rem;
   opacity: 0;
@@ -228,16 +235,16 @@ body
   #cyclone-accordion-container.active
   #cyclone-accordion-close-button:hover {
   color: red;
-  transition: transform 100ms ease-in-out;
   transform: scale(1.3);
+  transition: transform 100ms ease-in-out;
 }
 
 body
   main
   #cyclone-accordion-container.active
   #cyclone-accordion-close-button:active {
-  transition: transform 100ms ease-in-out;
   transform: scale(1);
+  transition: transform 100ms ease-in-out;
 }
 
 body main #cyclone-accordion-container #cyclone-accordion-close-button:focus,
@@ -258,8 +265,8 @@ body
 
 body main #cyclone-accordion {
   --_button-size: 2.5rem;
-  --_panel-padding: 0.5rem;
   --_panel-gap: 0.75rem;
+  --_panel-padding: 0.5rem;
 
   contain: content;
   display: none;
@@ -275,7 +282,7 @@ body main #cyclone-accordion-container.active #cyclone-accordion {
 body main #cyclone-accordion .accordion-panel {
   border-radius: calc(((var(--_panel-padding) * 2) + var(--_button-size)) / 2);
   box-shadow: 0 0 8px whitesmoke;
-  /* * cursor: pointer; */ 
+  cursor: pointer;
   flex-basis: calc(
     (var(--_panel-padding) * 2) + var(--_button-size)
   ); /* ? always the size on the main axis */
@@ -287,47 +294,12 @@ body main #cyclone-accordion .accordion-panel {
   z-index: 1;
 }
 
-body main #cyclone-accordion .accordion-panel::before {
-  background: url('../assets/images/cycloneStudios/cloudy.gif') center / cover no-repeat;
-  border-radius: inherit;
-  content: '';
-  inset: 0;
-  height: 100%;
-  opacity: 0.55;
-  width: 100%;
-  position: absolute;
-  transition: opacity 0.250s ease-in-out 0.5s;
-  z-index: -1;
-}
-
-body main #cyclone-accordion .accordion-panel::after {
-  background: linear-gradient(
-    to bottom,
-    black,
-    transparent,
-    transparent,
-    transparent,
-    silver
-  );
-  /* border-radius: inherit; */
-  content: '';
-  inset: 0;
-  height: 100%;
-  opacity: 0.3;
-  width: 100%;
-  position: absolute;
-  transform-origin: bottom;
-  transition: opacity 0.250s ease-in-out 0.250s, transform 0.5s ease-in-out 0.5s;
-  z-index: -1;
-}
-
-body main #cyclone-accordion .accordion-panel:has([aria-expanded='true'])::before {
-  opacity: 0;
-}
-
-body main #cyclone-accordion .accordion-panel:has([aria-expanded='true'])::after {
-  opacity: 0.55;
-  transform: scaleY(3.5);
+/* ? can be refactored using javascript */
+body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
+  box-shadow: 0 0 8px 3px var(--_panel-color);
+  cursor: auto;
+  flex-basis: clamp(10rem, 30vh, 15rem);
+  flex-grow: 1;
 }
 
 body main #cyclone-accordion .accordion-panel:hover {
@@ -347,6 +319,55 @@ body
   .accordion-panel:focus-within:has(.accordion-trigger:focus-visible) {
   outline: 3px ridge var(--_panel-color);
   outline-offset: 4px;
+}
+
+body main #cyclone-accordion .accordion-panel::before {
+  background: url('../assets/images/cycloneStudios/cloudy.gif') center / cover
+    no-repeat;
+  border-radius: inherit;
+  content: '';
+  height: 100%;
+  inset: 0;
+  opacity: 0.55;
+  width: 100%;
+  position: absolute;
+  transition: opacity 0.25s ease-in-out 0.5s;
+  z-index: -1;
+}
+
+body
+  main
+  #cyclone-accordion
+  .accordion-panel:has([aria-expanded='true'])::before {
+  opacity: 0;
+}
+
+body main #cyclone-accordion .accordion-panel::after {
+  background: linear-gradient(
+    to bottom,
+    black,
+    transparent,
+    transparent,
+    transparent,
+    silver
+  );
+  content: '';
+  inset: 0;
+  height: 100%;
+  opacity: 0.3;
+  position: absolute;
+  transform-origin: bottom;
+  transition: opacity 0.25s ease-in-out 0.25s, transform 0.5s ease-in-out 0.5s;
+  width: 100%;
+  z-index: -1;
+}
+
+body
+  main
+  #cyclone-accordion
+  .accordion-panel:has([aria-expanded='true'])::after {
+  opacity: 0.55;
+  transform: scaleY(3.5);
 }
 
 body main #cyclone-accordion .accordion-panel:nth-child(1) {
@@ -369,64 +390,11 @@ body main #cyclone-accordion .accordion-panel:nth-child(5) {
   --_panel-color: var(--color-pacman);
 }
 
-/* ? can be refactored using javascript */
-body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) {
-  box-shadow: 0 0 8px 3px var(--_panel-color);
-  /* * cursor: auto; */
-  flex-basis: clamp(10rem, 30vh, 15rem);
-  flex-grow: 1;
-}
-
-/* body main #cyclone-accordion .accordion-trigger {
-  cursor: pointer;
-} */
-
-body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) .accordion-content {
-  align-self: stretch;
-  overflow-y: scroll;
-}
-
-body main #cyclone-accordion .accordion-panel .accordion-content  {
-  inset: 0;
-  opacity: 0;
-  padding-bottom: 8px;
-  padding-right: calc(var(--_panel-padding) * 4);
-  padding-top: calc(var(--_button-size) + 8px);
-  position: absolute;
-  transform: translateY(5rem);
-  transition: transform 0.5s ease-in-out, opacity 250ms ease-in-out;
-}
-
-body main #cyclone-accordion .accordion-panel:has([ aria-expanded='true']) .accordion-content {
-  opacity: 1;
-  transform: translateY(0rem);
-}
-
-body main #cyclone-accordion .accordion-panel .accordion-title {
-  align-items: center;
-  color: white;
-  display: grid;
-  font-size: clamp(1.188rem, 3vw, 2.125rem);
-  line-height: 1;
-  isolation: isolate;
-  position: relative;
-  z-index: 1
-}
-
-body main #cyclone-accordion .accordion-panel .accordion-content .accordion-paragaph {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(0.8313rem, 1.125vw, 1rem);
-  margin-bottom: 1rem;
-}
-
-body main #cyclone-accordion .accordion-panel .accordion-panel:has([aria-expanded='true']) {
-  opacity: 1;
-}
-
 body main #cyclone-accordion .accordion-panel .accordion-trigger {
   align-items: center;
   background: transparent;
   border: 0;
+  cursor: pointer;
   display: flex;
   flex-direction: row-reverse;
   gap: var(--_panel-gap);
@@ -436,7 +404,12 @@ body main #cyclone-accordion .accordion-panel .accordion-trigger:focus {
   outline: none;
 }
 
-body main #cyclone-accordion .accordion-panel .accordion-icon {
+body
+  main
+  #cyclone-accordion
+  .accordion-panel
+  .accordion-trigger
+  .accordion-icon {
   aspect-ratio: 1 / 1;
   background: hsla(0, 0%, 0%, 0.55);
   border-radius: 50%;
@@ -446,22 +419,69 @@ body main #cyclone-accordion .accordion-panel .accordion-icon {
   z-index: 1;
 }
 
+body
+  main
+  #cyclone-accordion
+  .accordion-panel
+  .accordion-trigger
+  .accordion-title {
+  align-items: center;
+  color: white;
+  display: grid;
+  font-size: clamp(1.188rem, 3vw, 2.125rem);
+  line-height: 1;
+  isolation: isolate;
+  position: relative;
+  z-index: 1;
+}
 
-/* ! Accordion about styles */
-
-
-#cyclone-accordion .accordion-content {
-  /* filter: drop-shadow(0 0 5px whitesmoke); */
+body main #cyclone-accordion .accordion-panel .accordion-content {
+  inset: 0;
   margin-left: calc(var(--_button-size) + var(--_panel-gap));
+  opacity: 0;
+  padding-bottom: 8px;
+  padding-right: calc(var(--_panel-padding) * 4);
+  padding-top: calc(var(--_button-size) + 8px);
+  position: absolute;
+  transform: translateY(11rem);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-@keyframes showAndGrow {
-  to {
-    opacity: 0.33;
-    transform: scale(0.77);
-  }
-  
+body
+  main
+  #cyclone-accordion
+  .accordion-panel:has([aria-expanded='true'])
+  .accordion-content {
+  opacity: 1;
+  overflow-y: scroll;
+  transform: translateY(0rem);
 }
+
+body
+  main
+  #cyclone-accordion
+  .accordion-panel
+  .accordion-content
+  .accordion-heading {
+  filter: drop-shadow(0 0 5px var(--_panel-color));
+  font-size: clamp(1.75rem, 5vw, 2.8313rem);
+  line-height: 1;
+  margin-bottom: 1rem;
+  padding-left: 1vw;
+}
+
+body
+  main
+  #cyclone-accordion
+  .accordion-panel
+  .accordion-content
+  .accordion-paragaph {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(0.8313rem, 1.125vw, 1rem);
+  margin-bottom: 1rem;
+}
+
+/* * ABOUT SECTION STYLES pressStart */
 
 body main #cyclone-accordion .accordion-panel:first-child .about-image {
   animation: showAndGrow 5s linear infinite alternate;
@@ -480,15 +500,7 @@ body main #cyclone-accordion .accordion-panel:first-child .about-image:hover {
   opacity: 1;
 }
 
-
-
-body main #cyclone-accordion .accordion-panel h2 {
-  filter: drop-shadow(0 0 5px var(--_panel-color));
-  font-size: clamp(1.75rem, 5vw, 2.8313rem);
-  line-height: 1;
-  margin-bottom: 1rem;
-  padding-left: 1vw;
-}
+/* * ABOUT SECTION STYLES gameOver */
 
 body #cyclone-cursor {
   aspect-ratio: 1 / 1;
@@ -510,8 +522,52 @@ body #cyclone-cursor #cyclone-c {
   transition: all 380ms ease-out;
 }
 
+@media (hover: none) {
+  * {
+    cursor: default !important;
+  }
+
+  .no-cursor-element {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body main #cyclone-accordion .accordion-panel {
+    transition: flex-basis 0.5s ease-in-out, flex-grow 0.5s ease-in-out;
+  }
+
+  body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) p {
+    transition: all 0.5s ease-in-out 0.5s;
+  }
+}
+
+@media (max-width: 44.999em) {
+  body main #cyclone-accordion .accordion-title::after {
+    background: hsla(0, 0%, 0%, 0.5);
+    border-radius: 100vw;
+    content: '';
+    height: var(--_button-size);
+    left: calc((var(--_panel-gap) + var(--_button-size)) * -1);
+    position: absolute;
+    width: calc(100% + var(--_button-size) * 2);
+    z-index: -1;
+  }
+}
+
+@media (min-width: 45em) {
+  body main #cyclone-accordion {
+    flex-direction: row;
+    height: 30rem;
+  }
+
+  body main #cyclone-accordion .accordion-panel:first-child .about-image {
+    margin-bottom: 1.5rem;
+  }
+}
+
 /* ! ⬇️ needs-a-organizin' ⬇️ */
-x
+
 use {
   filter: drop-shadow(0 0 5px var(--_panel-color));
   transition: opacity 380ms ease-in-out;
@@ -532,9 +588,9 @@ h6 {
 
 /* demo */
 figure {
-  position: fixed;
   bottom: 25px;
   left: 50%;
+  position: fixed;
   transform: translateX(-50%);
 }
 
@@ -545,10 +601,6 @@ figure audio {
 audio::-webkit-media-controls-panel {
   background-color: rgb(88, 88, 88);
   filter: drop-shadow(0 10px white);
-}
-
-.under-construction {
-  font-size: 3rem;
 }
 
 /* audio::-webkit-media-controls-mute-button
@@ -578,47 +630,3 @@ audio::-webkit-media-controls-rewind-button
 audio::-webkit-media-controls-return-to-realtime-button
 
 audio::-webkit-media-controls-toggle-closed-captions-button */
-
-@media (hover: none) {
-  * {
-    cursor: default !important;
-  }
-
-  .no-cursor-element {
-    display: none;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  body main #cyclone-accordion .accordion-panel {
-    transition: flex-basis 0.5s ease-in-out, flex-grow 0.5s ease-in-out;
-  }
-
-  body main #cyclone-accordion .accordion-panel:has([aria-expanded='true']) p {
-    transition: all 0.5s ease-in-out 0.5s;
-  }
-}
-
-@media (max-width: 44.999em) {
-  body main #cyclone-accordion .accordion-title::after {
-    background: hsla(0, 0%, 0%, 0.5);
-    border-radius: 100vw;
-    content: '';
-    position: absolute;
-    height: var(--_button-size);
-    left: calc((var(--_panel-gap) + var(--_button-size)) * -1);
-    width: calc(100% + var(--_button-size) * 2);
-    z-index: -1;
-  }
-}
-
-@media (min-width: 45em) {
-  body main #cyclone-accordion {
-    flex-direction: row;
-    height: 30rem;
-  }
-
-  body main #cyclone-accordion .accordion-panel:first-child .about-image {
-    margin-bottom: 1.5rem;
-  }
-}
