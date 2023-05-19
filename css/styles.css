@@ -444,17 +444,17 @@ body main #cyclone-accordion .accordion-panel .accordion-content {
   padding-top: calc(var(--_button-size) + 8px);
   position: absolute;
   transform: translateY(11rem);
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 body
-  main
-  #cyclone-accordion
-  .accordion-panel:has([aria-expanded='true'])
-  .accordion-content {
+main
+#cyclone-accordion
+.accordion-panel:has([aria-expanded='true'])
+.accordion-content {
   opacity: 1;
   overflow-y: scroll;
   transform: translateY(0rem);
+  transition: transform 0.5s ease-in-out 0.5s, opacity 0.5s ease-in-out 0.5s;
 }
 
 body
