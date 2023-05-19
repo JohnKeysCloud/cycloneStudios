@@ -18,7 +18,7 @@
 
 @keyframes showAndGrow {
   to {
-    opacity: 0.33;
+    opacity: 0.55;
     transform: scale(0.77);
   }
 }
@@ -488,7 +488,7 @@ body main #cyclone-accordion .accordion-panel:first-child .about-image {
   filter: drop-shadow(0 0 5px var(--_panel-color));
   margin-bottom: 0.625rem;
   padding-left: 1rem;
-  opacity: 0.88;
+  opacity: 1;
   transform: scale(0.88);
   transform-origin: bottom left;
   transition: transform 0.5s ease-in-out, opacity 250ms ease-in-out;
@@ -496,7 +496,6 @@ body main #cyclone-accordion .accordion-panel:first-child .about-image {
 
 body main #cyclone-accordion .accordion-panel:first-child .about-image:hover {
   animation-play-state: paused;
-  transform: scale(0.88);
   opacity: 1;
 }
 
