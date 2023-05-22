@@ -488,6 +488,7 @@ body main #cyclone-accordion .accordion-panel:first-child .about-image {
   margin-bottom: 0.625rem;
   margin-inline: auto;
   padding-left: 1rem;
+  pointer-events: none;
   opacity: 1;
   transform: scale(0.88);
   transition: opacity 250ms ease-in-out;
