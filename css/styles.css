@@ -16,10 +16,9 @@
   }
 }
 
-@keyframes showAndGrow {
+@keyframes opacitySwitch {
   to {
-    opacity: 0.55;
-    transform: scale(0.77);
+    opacity: 0.33;
   }
 }
 
@@ -484,14 +483,14 @@ body
 /* * ABOUT SECTION STYLES pressStart */
 
 body main #cyclone-accordion .accordion-panel:first-child .about-image {
-  animation: showAndGrow 5s linear infinite alternate;
+  animation: opacitySwitch 1.88s ease-in infinite alternate;
   filter: drop-shadow(0 0 5px var(--_panel-color));
   margin-bottom: 0.625rem;
+  margin-inline: auto;
   padding-left: 1rem;
   opacity: 1;
   transform: scale(0.88);
-  transform-origin: bottom left;
-  transition: transform 0.5s ease-in-out, opacity 250ms ease-in-out;
+  transition: opacity 250ms ease-in-out;
 }
 
 body main #cyclone-accordion .accordion-panel:first-child .about-image:hover {
