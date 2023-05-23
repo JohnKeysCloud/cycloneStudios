@@ -436,7 +436,7 @@ body
 
 body main #cyclone-accordion .accordion-panel .accordion-content {
   inset: 0;
-  margin-left: calc(var(--_button-size) + var(--_panel-gap));
+  padding-left: calc(var(--_button-size) + var(--_panel-gap));
   opacity: 0;
   padding-bottom: 8px;
   padding-right: calc(var(--_panel-padding) * 4);
