@@ -482,19 +482,19 @@ body
 
 /* * ABOUT SECTION STYLES pressStart */
 
-body main #cyclone-accordion .accordion-panel:first-child .about-image {
-  animation: opacitySwitch 1.88s ease-in infinite alternate;
+body main #cyclone-accordion .accordion-panel:first-child #about-banner {
+  animation: opacitySwitch 1.55s ease-in infinite alternate;
   filter: drop-shadow(0 0 5px var(--_panel-color));
-  margin-bottom: 0.625rem;
-  margin-inline: auto;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
   padding-left: 1rem;
+  padding-top: 1rem;
   pointer-events: none;
   opacity: 1;
-  transform: scale(0.88);
   transition: opacity 250ms ease-in-out;
 }
 
-body main #cyclone-accordion .accordion-panel:first-child .about-image:hover {
+body main #cyclone-accordion .accordion-panel:first-child #about-banner:hover {
   animation-play-state: paused;
   opacity: 1;
 }
