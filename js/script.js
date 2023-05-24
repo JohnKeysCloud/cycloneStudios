@@ -54,9 +54,7 @@ function showAccordion() {
 
   cycloneAccordion.addEventListener('click', (e) => {
     const clickedPanel = e.target.closest('.accordion-panel');
-
-    console.log(e.target);
-
+    
     if (!clickedPanel) return;
     switchAccordionPanel(clickedPanel);
   });
